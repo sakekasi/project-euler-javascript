@@ -39,7 +39,8 @@ var main = function(){
 		var opt = copy(tri);
 
 		for(var i = tri.length - 2; i >= 0; i--){ //row
-			for(var j = tri[i].length - 1; j>=0; j--){
+			for(var j = tri[i].length - 1; j>=0; j--){//column
+				 //basically, the optimal path is the max of the next level's optimal
 				opt[i][j] += max(opt[i+1][j], opt[i+1][j+1]);
 			}
 		}
@@ -49,11 +50,11 @@ var main = function(){
 
 	var main = function(){
 		triangle(function(x){
-			problem18(console.log, x)
+			problem18(console.log, x); //here, console.log is the final function in our cps stack.
 		},
 		'problem-18.txt');
 	};
-	return {main: main};
+	return {main: main}; //exported variables (the public ones)
 }();
 
 exports.main = main;
